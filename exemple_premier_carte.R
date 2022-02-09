@@ -61,7 +61,8 @@ LANDES=FRA[FRA$NAME_2 == "Landes",]
 #View(LANDES@data)
 
 # on importe les resultats des elections depuis lobjet créé dans data_user_friendly.R
-all_data <- readRDS("ALL_RESULTATS.RData")
+all_data <- readRDS("./data/ALL_RESULTATS.RData")
+
 # on prend 1 election en particulier pr lexemple
 
 data=all_data[["Regionales"]][["2021"]][["T2"]]
@@ -70,8 +71,7 @@ data=all_data[["Regionales"]][["2021"]][["T2"]]
 LANDES_WITH_DATA=merge(LANDES, data , by= "NAME_5")
 str(LANDES_WITH_DATA@data)
 
-# Choix de la variable à mettre sur la carte
-variable='UDI_LEG_17'
+variable='TOTAL_GAUCHE_REG_PER'
 
 # On enlève les communes donnees manquantes pour la variable choisie (exemple parti non present ou commune sans second tour)
 
